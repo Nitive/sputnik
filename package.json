@@ -1,0 +1,36 @@
+{
+  "name": "Sputnik",
+  "version": "1.0.0",
+  "keywords": [
+    "csssr",
+    "standards"
+  ],
+  "scripts": {
+    "clean": "rimraf _book",
+    "watch": "gitbook install && gitbook serve && cp CNAME _book",
+    "build": "gitbook install && gitbook build -g CSSSR/sputnik",
+    "publish": "npm run build && cp CNAME _book && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push git@github.com:CSSSR/sputnik gh-pages --force"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh@github.com:CSSSR/sputnik.git"
+  },
+  "author": "CSSSR <sales@csssr.io> (https://github.com/CSSSR)",
+  "contributors": [
+    "Felix Exter <felixexter@ya.ru> (https://github.com/felixexter)",
+    "Aleksandr Petrov <dzhiriki@gmail.com> (https://github.com/dzhiriki)"
+  ],
+  "bugs": {
+    "url": "https://github.com/CSSSR/sputnik/issues/",
+    "email": "cpt@csssr.com"
+  },
+  "homepage": "https://github.com/CSSSR/sputnik/",
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=2.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-cli": "^2.3.0"
+  }
+}
